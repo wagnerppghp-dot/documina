@@ -71,6 +71,9 @@
   font: 600 10px var(--font-head);
 }
 .showcase-caption p { margin: 0; font-size: 13px; }
+.download-stat strong { color: #dce8ff; font-weight: 700; }
+.cta-downloads { margin-top: 14px; color: #8390a9; font-size: 11px; }
+.cta-downloads strong { color: var(--green); font: 700 15px var(--font-head); }
 @media (max-width: 720px) {
   .showcase-tabs { margin-right: -20px; padding-right: 20px; }
   .screen-top span { font-size: 7px; }

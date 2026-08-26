@@ -52,3 +52,29 @@ showcaseTabs.forEach(tab => {
     changeShowcase(tab);
   });
 });
+
+const counterReadUrl = 'https://counterapi.com/api/documina/download/windows64?readOnly=true&noFormatting=true';
+const counterHitUrl = 'https://counterapi.com/api/documina/download/windows64?noFormatting=true';
+const downloadCounts = document.querySelectorAll('.download-count');
+
+function renderDownloadCount(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return;
+  downloadCounts.forEach(element => {
+    element.textContent = number.toLocaleString('pt-BR');
+  });
+}
+
+fetch(counterReadUrl)
+  .then(response => response.ok ? response.json() : Promise.reject())
+  .then(data => renderDownloadCount(data.value))
+  .catch(() => downloadCounts.forEach(element => element.textContent = '—'));
+
+document.querySelectorAll('.download-link').forEach(link => {
+  link.addEventListener('click', () => {
+    fetch(counterHitUrl, { keepalive: true })
+      .then(response => response.ok ? response.json() : Promise.reject())
+      .then(data => renderDownloadCount(data.value))
+      .catch(() => {});
+  });
+});
