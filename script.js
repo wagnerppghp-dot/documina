@@ -25,3 +25,21 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const showcaseImage = document.getElementById('showcase-image');
+const showcaseCaption = document.getElementById('showcase-caption');
+const showcaseStep = document.getElementById('showcase-step');
+document.querySelectorAll('.showcase-tab').forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.showcase-tab').forEach(item => item.classList.remove('active'));
+    tab.classList.add('active');
+    showcaseImage.classList.add('switching');
+    setTimeout(() => {
+      showcaseImage.src = tab.dataset.image;
+      showcaseImage.alt = `Tela real do Documina: ${tab.textContent.trim()}`;
+      showcaseCaption.textContent = tab.dataset.caption;
+      showcaseStep.textContent = String(index + 1).padStart(2, '0');
+      showcaseImage.classList.remove('switching');
+    }, 180);
+  });
+});

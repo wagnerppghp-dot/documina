@@ -1,0 +1,77 @@
+.product-tour {
+  border-top: 1px solid var(--line);
+  background: radial-gradient(circle at 50% 40%, rgba(59, 70, 190, .11), transparent 43%);
+}
+.showcase { position: relative; }
+.showcase-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.showcase-tab {
+  flex: 1;
+  min-width: 130px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0b1020;
+  color: #77839e;
+  font: 600 10px var(--font-head);
+  letter-spacing: .4px;
+  cursor: pointer;
+  transition: .25s;
+}
+.showcase-tab:hover,
+.showcase-tab.active {
+  color: #fff;
+  border-color: rgba(75, 178, 255, .55);
+  background: linear-gradient(120deg, rgba(30, 147, 201, .18), rgba(102, 73, 220, .18));
+  box-shadow: 0 8px 25px rgba(43, 103, 230, .12);
+}
+.screen-frame {
+  overflow: hidden;
+  border: 1px solid rgba(124, 158, 237, .3);
+  border-radius: 14px;
+  background: #0b0e19;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, .5), 0 0 80px rgba(50, 77, 213, .12);
+}
+.screen-top {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+.screen-top i { width: 7px; height: 7px; border-radius: 50%; background: #2a334b; }
+.screen-top i:first-child { background: #7056de; }
+.screen-top span { margin-left: 10px; color: #5f6d88; font: 600 8px var(--font-head); letter-spacing: 1.2px; }
+.screen-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1.86 / 1;
+  object-fit: cover;
+  object-position: top;
+  transition: opacity .22s ease;
+}
+.screen-frame img.switching { opacity: .15; }
+.showcase-caption { display: flex; align-items: center; gap: 16px; margin-top: 18px; color: #a4aec2; }
+.showcase-caption span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border: 1px solid #33547d;
+  border-radius: 50%;
+  color: #69cfff;
+  font: 600 10px var(--font-head);
+}
+.showcase-caption p { margin: 0; font-size: 13px; }
+@media (max-width: 720px) {
+  .showcase-tabs { margin-right: -20px; padding-right: 20px; }
+  .screen-top span { font-size: 7px; }
+}
